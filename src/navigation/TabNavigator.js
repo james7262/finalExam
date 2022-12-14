@@ -1,5 +1,7 @@
 import React from 'react';
 import RemindersScreen from '../screens/Reminders';
+import HighPriorityRemindersScreen from '../screens/HighPriorityReminders';
+import LowPriorityRemindersScreen from '../screens/LowPriorityReminders';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Tab = createBottomTabNavigator();
@@ -22,6 +24,8 @@ const TabNavigator = props => {
         }}
     >
         <Tab.Screen name={'All'} component={RemindersScreen}/>
+        <Tab.Screen name={'High'} component={HighPriorityRemindersScreen}/>
+        <Tab.Screen name={'Low'} component={LowPriorityRemindersScreen}/>
     </Tab.Navigator>
   );
 };

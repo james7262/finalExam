@@ -8,7 +8,7 @@ import styles from './styles';
 const myRemindersDB = openDatabase({name: 'MyReminders.db'});
 const remindersTableName = 'reminders';
 
-const RemindersScreen = props => {
+const HighPriorityRemindersScreen = props => {
 
   const navigation = useNavigation();
 
@@ -19,7 +19,7 @@ const RemindersScreen = props => {
       let results = [];
       myRemindersDB.transaction(txn => {
         txn.executeSql(
-          `SELECT * FROM ${remindersTableName}`,
+          `SELECT * FROM ${remindersTableName} WHERE priority = "High"`,
           [],
           (_, res) => {
             let len = res.rows.length;
@@ -70,4 +70,4 @@ const RemindersScreen = props => {
   );
 };
 
-export default RemindersScreen;
+export default HighPriorityRemindersScreen;
